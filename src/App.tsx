@@ -25,8 +25,6 @@ import '@ionic/react/css/display.css';
 /* Your CSS */
 import './App.css';
 
-
-
 setupIonicReact();
 
 const App: React.FC = () => {
@@ -36,7 +34,8 @@ const App: React.FC = () => {
       <IonReactRouter>
         <IonRouterOutlet>
           {/** Page routing here */}
-          <Route exact path="/">
+            <Route exact path="/">
+
             <Landing />
           </Route>
         </IonRouterOutlet>
