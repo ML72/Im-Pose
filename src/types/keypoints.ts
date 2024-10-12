@@ -1,14 +1,11 @@
+export interface Keypoint {
+    x: number,
+    y: number,
+    score: number,
+    name: string
+}
+
 export interface Keypoints {
-    keypoints: [{
-        x: number,
-        y: number,
-        score: number,
-        name: string
-    }];
-    keypoints3D: [{
-        x: number,
-        y: number,
-        score: number,
-        name: string
-    }];
+    keypoints: [Keypoint];
+    keypoints3D: [Keypoint];
 }
