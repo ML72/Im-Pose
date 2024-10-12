@@ -1,27 +1,64 @@
 import React from 'react';
-import { Button, Container, Typography } from '@mui/material';
-import { useDispatch } from 'react-redux';
+import { Button, Container, styled, Box, ButtonGroup } from '@mui/material';
 
 import CustomPage from '../components/CustomPage';
-import { setNewAlert } from '../service/alert';
+import NavBar from './Navbar';
+import Footer from './Footer';
+
+import CloudUploadIcon from '@mui/icons-material/CloudUpload';
 
 const Home: React.FC = () => {
-  const dispatch = useDispatch();
-
-  const alertHandler = () => {
-    setNewAlert(dispatch, { msg: "Hello world!" });
-  }
   
+const VisuallyHiddenInput = styled('input')({
+    clip: 'rect(0 0 0 0)',
+    clipPath: 'inset(50%)',
+    height: 1,
+    overflow: 'hidden',
+    position: 'absolute',
+    bottom: 0,
+    left: 0,
+    whiteSpace: 'nowrap',
+    width: 1,
+});
+
   return (
     <CustomPage>
-      <Typography align="center" variant="body1" sx={{ mt: 3, mx: 2 }}>
-        This is the landing page.
-      </Typography>
-      <Container sx={{ mt: 3 }}>
-        <Button variant="contained" fullWidth onClick={alertHandler}>
-          Click me!
-        </Button>
+      <NavBar />
+
+      <Container className='home-button-container' maxWidth="sm">
+        <ButtonGroup 
+            orientation='vertical'
+            className='home-button-group'
+            variant='outlined'
+        >
+            <Button className='home-button' onClick={() => console.log("clicked")}>
+                Camera
+            </Button>
+            <Button className='home-button'>
+                Album
+            </Button>
+            <Button className='home-button'>
+                History & Stats
+            </Button>
+        </ButtonGroup>
+
+        {/* <Button
+            component="label"
+            role={undefined}
+            variant="contained"
+            tabIndex={-1}
+            startIcon={<CloudUploadIcon />}
+        >
+            Upload files
+            <VisuallyHiddenInput
+                type="file"
+                onChange={(event) => console.log(event.target.files)}
+                multiple
+            />
+        </Button> */}
       </Container>
+
+      {/* <Footer /> */}
     </CustomPage>
   )
 };
