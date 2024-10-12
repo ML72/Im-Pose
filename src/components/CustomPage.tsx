@@ -21,6 +21,21 @@ const CustomPage: React.FC<ComponentProps> = ({ children = [] }: ComponentProps)
     }
   });
 
+//   const themes = createTheme({
+//     palette: {
+//         background: {
+//           paper: '#fff',
+//         },
+//         text: {
+//           primary: '#173A5E',
+//           secondary: '#46505A',
+//         },
+//         action: {
+//           active: '#001E3C',
+//         },
+//       },
+// });
+
   return (
     <ThemeProvider theme={theme}>
       <IonContent forceOverscroll={false}>
