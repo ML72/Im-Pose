@@ -1,0 +1,7 @@
+{
+  "name": "Pro-Pose",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react-vite"
+}
