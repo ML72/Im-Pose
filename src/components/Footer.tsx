@@ -3,8 +3,7 @@ import { Box, Typography } from '@mui/material';
 
 
 const Footer: React.FC = () => {
-    console.log('Footer');
-
+    
   return (
     <Box sx={{ 
         width: "100%", 

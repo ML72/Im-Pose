@@ -3,8 +3,8 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { IonContent } from '@ionic/react';
 
 import Alert from './Alert';
-import NavBar from '../pages/Navbar';
-import Footer from '../pages/Footer';
+import NavBar from './Navbar';
+import Footer from './Footer';
 import { Box } from '@mui/material';
 
 interface ComponentProps {

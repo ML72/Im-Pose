@@ -31,9 +31,7 @@ const Home: React.FC = () => {
 
   return (
     <CustomPage>
-
       <Container maxWidth="sm" sx={{ paddingY: "1rem", paddingX: "1rem", marginY: "1rem"}}>
-
         <Stack spacing={24} justifyContent="center" alignItems="center" >
             <HomeBox>
                 <HomeButton onClick={() => changePage("upload")}>
@@ -62,10 +60,7 @@ const Home: React.FC = () => {
                 </Typography>
             </HomeBox>
         </Stack>
-
       </Container>
-
-      {/* <Footer /> */}
     </CustomPage>
   )
 };
