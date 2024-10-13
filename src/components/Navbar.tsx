@@ -16,6 +16,7 @@ const Navbar: React.FC = () => {
             alt="Logo"
             src="/favicon.png"
             sx={{ display: 'flex', mr: 1.5, borderRadius: "0" }}
+            onClick={() => window.location.href = '/'}
           />
           <Typography sx={{ display: 'inline-flex', alignItems: 'center' }}>
             <span style={{ color: '#4F2144', fontWeight: "1000", fontSize: "2rem" }}>im</span>
