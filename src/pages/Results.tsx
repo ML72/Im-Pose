@@ -19,6 +19,11 @@ const Results: React.FC = () => {
   
   return (
     <CustomPage>
+      <Container maxWidth="sm" sx={{ 
+        background: 'linear-gradient(45deg, #e0f7fa, #fce4ec)',
+        height: "100%",
+      }}
+      >
         <br />
         {(imgs.length === 0) ? 
             <Typography variant='h4' align='center'>
@@ -52,6 +57,7 @@ const Results: React.FC = () => {
                 })}
             </Box>
         }
+      </Container>
     </CustomPage>
   )
 };

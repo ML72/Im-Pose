@@ -23,7 +23,16 @@ const CustomPage: React.FC<ComponentProps> = ({ children = [] }: ComponentProps)
     },
     shape: {
       borderRadius: 5,
-    }
+    },
+    components: {
+      MuiButton: {
+        styleOverrides: {
+          root: {
+            textTransform: 'none', // Set all button text to lowercase
+          },
+        },
+      },
+    },
   });
 
   return (
