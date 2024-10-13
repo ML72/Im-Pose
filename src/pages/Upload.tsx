@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { Button, Container, Typography, Switch, FormGroup, FormControlLabel, Box } from '@mui/material';
-import { useDispatch } from 'react-redux';
-
+import { useHistory } from 'react-router-dom';
 import CustomPage from '../components/CustomPage';
-import { setNewAlert } from '../service/alert';
-import { Camera, CameraResultType } from '@capacitor/camera';
+
+import { compareKeypoints } from '../util/comparisons';
+import { detectKeypointsImage, detectKeypointsVideo } from '../util/tensorflow';
 
 const Upload: React.FC = () => {
   const [target, setTarget]: any = useState(null);
@@ -35,7 +35,59 @@ const Upload: React.FC = () => {
     clearUploads();
     setPhotoMode(!photoMode);
   }
+
+  const history = useHistory();
+  const changePage = (page: string) => {
+      history.push('/' + page);
+  }
+
+  const handleSubmit = async () => {
+    if (photoMode) {
+      // Submitting picture - picture comparison
+      let target_img = fileToImage(target);
+      let demo_img = fileToImage(demo);
+      let target_poses = await detectKeypointsImage(target_img);
+      let demo_poses = await detectKeypointsImage(demo_img);
+      let target_keypoints: any = target_poses[0];
+      let demo_keypoints: any = demo_poses[0];
+      let result = compareKeypoints(target_keypoints, demo_keypoints);
+      console.log(result);
+    } else {
+      let target_vid = fileToVideo(target);
+      let demo_vid = fileToVideo(demo);
+      console.log(target_vid);
+      let target_poses = await detectKeypointsVideo(target_vid);
+      let demo_poses = await detectKeypointsVideo(demo_vid);
+      let target_keypoints: any = target_poses[0];
+      let demo_keypoints: any = demo_poses[0];
+      let result = compareKeypoints(target_keypoints, demo_keypoints);
+      console.log(target_keypoints[0].length)
+      console.log(result)
+    }
+    // changePage("results")
+  }
   
+  function fileToImage(file: File): HTMLImageElement {
+    const img = new Image();
+    const createdURL:string = window.URL.createObjectURL(file);
+    img.src = createdURL;
+    img.onload = () => {
+      // Destructor for the URL
+      URL.revokeObjectURL(createdURL);
+    }
+    return img;
+  }
+
+  function fileToVideo(file: File): HTMLVideoElement {
+    const video = document.createElement('video');
+    const createdURL:string = window.URL.createObjectURL(file);
+    video.src = createdURL;
+    video.onload = () => {
+      URL.revokeObjectURL(createdURL);
+    }
+    return video;
+  }
+
   return (
     <CustomPage>
       <Typography align="center" variant="body1" sx={{ mt: 3, mx: 2 }}>
@@ -104,7 +156,7 @@ const Upload: React.FC = () => {
 
       {/* Submit */}
       <Container sx={{ mt: 3 }}>
-        <Button variant="outlined" fullWidth onClick={() => {}}>
+        <Button variant="outlined" fullWidth onClick={handleSubmit}>
           Check the match!
         </Button>
       </Container>

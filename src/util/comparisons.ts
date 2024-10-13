@@ -59,6 +59,7 @@ export const compareTimeKeypoints = (demo: Keypoints[], target: Keypoints[]) => 
     const n = demo.length;
     const costMatrix = Array.from({ length: m }, () => Array(n).fill(0));
     for(let i = 0; i < m; i++) {
+        console.log(i);
         for(let j = 0; j < n; j++) {
             costMatrix[i][j] = compareKeypoints(target[i], demo[j]).overall;
         }
