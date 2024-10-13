@@ -136,28 +136,6 @@ body {
     line-height: 21px;
   }
 
-  /* Home */
-  .home-button-container {
-    align-items: center;
-    margin: auto;
-    justify-content: start;
-    text-align: center;
-    height: 80%;
-    
-  }
-  .home-button-group {
-    /* display: flex;
-    flex-direction: column;
-    align-items: center; */
-    padding: 10px;
-    margin: auto;
-    border: 1px solid black;
-  }
-  .home-button {
-    padding-bottom: 100px;
-  }
-
-
   /* NavBar */
   .navbar {
     align-items: center;
