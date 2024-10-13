@@ -6,20 +6,6 @@ import { useHistory } from 'react-router-dom';
 import CustomPage from '../components/CustomPage';
 
 const Home: React.FC = () => {
-  
-    const HomeButton = styled(Avatar)(({ theme }) => ({
-        fontSize: "20px",
-        position: 'relative',
-        width: "6rem",
-        height: "6rem",
-    }));
-
-    const HomeBox = styled(ButtonGroup)(({ theme }) => ({
-        display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 'center',
-        alignItems: 'center',
-    }));
 
     const history = useHistory();
     let changePage = (page: string) => {
