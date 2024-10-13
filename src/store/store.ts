@@ -13,7 +13,7 @@ const combinedReducer = combineReducers({
 });
 
 const persistConfig = {
-  key: 'pro-pose-root',
+  key: 'im-pose-root',
   whitelist: [picsSlice.name],
   storage
 }

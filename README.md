@@ -1,4 +1,4 @@
-# Pro-Pose 🙌
+# Im-Pose 🙌
 
 ## Getting started
 

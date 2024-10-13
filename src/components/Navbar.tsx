@@ -1,54 +1,30 @@
-import React from 'react';
-import { AppBar, Box, IconButton, Stack, Toolbar } from '@mui/material';
-import { useHistory, useLocation } from 'react-router';
+import * as React from 'react';
+import AppBar from '@mui/material/AppBar';
+import Toolbar from '@mui/material/Toolbar';
+import Typography from '@mui/material/Typography';
+import Container from '@mui/material/Container';
+import Avatar from '@mui/material/Avatar';
 
-import ChevronLeftSharpIcon from '@mui/icons-material/ChevronLeftSharp';
-import Logo from './Logo';
 
+const Navbar: React.FC = () => {
 
-const NavBar: React.FC = () => {
+  return (
+    <AppBar position="static">
+      <Container maxWidth="xl">
+        <Toolbar disableGutters>
+          <Avatar
+            alt="Logo"
+            src="/favicon.png"
+            sx={{ display: 'flex', mr: 1 }}
+          />
+          <Typography sx={{ display: 'inline-flex', alignItems: 'center' }}>
+            <span style={{ color: '#4F2144', fontWeight: "1000", fontSize: "2rem" }}>im</span>
+            <span style={{ color: '#F6C5DA', fontWeight: "1000", fontSize: "2rem" }}>pose</span>
+          </Typography>
+        </Toolbar>
+      </Container>
+    </AppBar>
+  );
+}
 
-    let location = useLocation();
-
-    const history = useHistory();
-    let changePage = () => {
-        history.push('/');
-    }
-  
-    return (
-        <AppBar position='static' className='navbar' sx={{ height: '3rem', backgroundColor: 'transparent' }}>
-            
-            <Toolbar className='navbar-tool' sx={{ width: "100%" }}>
-                {location.pathname === '/' ? 
-                    <Stack spacing={2} direction="row" sx={{ width: "100%", flexGrow: 1, alignItems: 'center' }}>
-                        <Box sx={{ flex:1, display: 'flex', justifyContent: 'center' }} />
-                        <Box sx={{ flex:1, display: 'flex', justifyContent: 'center' }} >
-                            <Logo />
-                        </Box>
-                        <Box sx={{ flex:1, display: 'flex', justifyContent: 'center' }} />
-                    </Stack>
-                : 
-                    <Stack spacing={2} direction="row" sx={{ width: "100%", flexGrow: 1, alignItems: 'center' }}>
-                        <Box sx={{ flex:1, display: 'flex', justifyContent: 'left' }}>
-                            <IconButton onClick={() => changePage()}>
-                                <ChevronLeftSharpIcon />
-                            </IconButton>
-                        </Box>
-                        <Box sx={{ flex:1, display: 'flex', justifyContent: 'center' }}>
-                            <img 
-                                className='navbar-logo' 
-                                src='https://picsum.photos/100' 
-                                alt='logo'
-                                onClick={() => console.log('logo clicked')}
-                            />
-                        </Box>
-                        <Box sx={{ flex:1, display: 'flex', justifyContent: 'center' }} />
-                    </Stack>
-                }
-                
-            </Toolbar>
-        </AppBar>
-    )
-};
-
-export default NavBar;
+export default Navbar;

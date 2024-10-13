@@ -1,8 +1,8 @@
 import { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
-  appId: 'com.propose.app', // Must be unique and should correspond to domain
-  appName: 'Pro-Pose',
+  appId: 'com.impose.app', // Must be unique and should correspond to domain
+  appName: 'Im-Pose',
   webDir: 'dist',
   bundledWebRuntime: false
 };

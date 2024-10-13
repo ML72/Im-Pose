@@ -4,7 +4,6 @@ import { IonContent } from '@ionic/react';
 
 import Alert from './Alert';
 import NavBar from './Navbar';
-import Footer from './Footer';
 import { Box } from '@mui/material';
 
 interface ComponentProps {
@@ -16,7 +15,10 @@ const CustomPage: React.FC<ComponentProps> = ({ children = [] }: ComponentProps)
   const theme: any = createTheme({
     palette: {
       primary: {
-        main: "#ae41e0",
+        main: "#C9458A"
+      },
+      secondary: {
+        main: "#F6C5DA"
       }
     },
     shape: {
@@ -32,7 +34,6 @@ const CustomPage: React.FC<ComponentProps> = ({ children = [] }: ComponentProps)
                 { children }
                 <Alert />
             </IonContent>
-            <Footer />
         </Box>
     </ThemeProvider>
   )
