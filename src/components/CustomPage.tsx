@@ -3,6 +3,7 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { IonContent } from '@ionic/react';
 
 import Alert from './Alert';
+import NavBar from '../pages/Navbar';
 
 interface ComponentProps {
   children?: ReactNode;
@@ -38,6 +39,7 @@ const CustomPage: React.FC<ComponentProps> = ({ children = [] }: ComponentProps)
 
   return (
     <ThemeProvider theme={theme}>
+        <NavBar />
       <IonContent forceOverscroll={false}>
         { children }
         <Alert />

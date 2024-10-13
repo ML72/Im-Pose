@@ -33,7 +33,6 @@ const Home: React.FC = () => {
 
   return (
     <CustomPage>
-      <NavBar />
 
       <Container maxWidth="sm" sx={{ paddingY: "1rem", paddingX: "1rem", marginY: "1rem"}}>
 
