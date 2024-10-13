@@ -14,7 +14,13 @@ const Results: React.FC = () => {
 
   return (
     <CustomPage>
-     
+      <Container maxWidth="sm" sx={{ 
+        background: 'linear-gradient(45deg, #e0f7fa, #fce4ec)',
+        height: "100%",
+      }}
+      >        
+      </Container>
+
     </CustomPage>
   );
 };
