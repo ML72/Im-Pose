@@ -59,11 +59,11 @@ export const compareTimeKeypoints = (demo: Keypoints[], target: Keypoints[]) => 
     const n = demo.length;
     const costMatrix = Array.from({ length: m }, () => Array(n).fill(0));
     for(let i = 0; i < m; i++) {
-        console.log(i);
         for(let j = 0; j < n; j++) {
-            costMatrix[i][j] = compareKeypoints(target[i], demo[j]).overall;
+            costMatrix[i][j] = 1 - compareKeypoints(target[i], demo[j]).overall;
         }
     }
+    console.log(costMatrix);
 
     // Compute the dynamic time warping
     const res = dynamicTimeWarp(costMatrix);
@@ -71,6 +71,6 @@ export const compareTimeKeypoints = (demo: Keypoints[], target: Keypoints[]) => 
     return {
         mappingPerFrame: res.indices,
         costPerFrame: res.costs,
-        costOverall: res.costs.reduce((a, b) => a + b, 0)
+        costOverall: res.costs.reduce((a, b) => a + b, 0) / res.costs.length
     };
 }

@@ -3,7 +3,7 @@ import { Button, Container, Typography, Switch, FormGroup, FormControlLabel, Box
 import { useHistory } from 'react-router-dom';
 import CustomPage from '../components/CustomPage';
 
-import { compareKeypoints } from '../util/comparisons';
+import { compareKeypoints, compareTimeKeypoints } from '../util/comparisons';
 import { detectKeypointsImage, detectKeypointsVideo } from '../util/tensorflow';
 
 const Upload: React.FC = () => {
@@ -52,16 +52,21 @@ const Upload: React.FC = () => {
       let demo_keypoints: any = demo_poses[0];
       let result = compareKeypoints(target_keypoints, demo_keypoints);
       console.log(result);
+
     } else {
       let target_vid = fileToVideo(target);
       let demo_vid = fileToVideo(demo);
-      console.log(target_vid);
-      let target_poses = await detectKeypointsVideo(target_vid);
-      let demo_poses = await detectKeypointsVideo(demo_vid);
-      let target_keypoints: any = target_poses[0];
-      let demo_keypoints: any = demo_poses[0];
-      let result = compareKeypoints(target_keypoints, demo_keypoints);
-      console.log(target_keypoints[0].length)
+
+      let target_poses = await detectKeypointsVideo(target_vid, 10);
+      let demo_poses = await detectKeypointsVideo(demo_vid, 10);
+
+      console.log(target_poses);
+      console.log(demo_poses);
+      console.log(target_vid, demo_vid)
+      
+      let target_keypoints: any = target_poses;
+      let demo_keypoints: any = demo_poses;
+      let result = compareTimeKeypoints(demo_keypoints, target_keypoints);
       console.log(result)
     }
     // changePage("results")
