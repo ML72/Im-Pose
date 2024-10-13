@@ -1,4 +1,4 @@
-import { cosineSim, normalizeKeypoints } from './math';
+import { cosineSim, normalizeKeypoints, dynamicTimeWarp } from './math';
 import { Keypoints } from '../types/keypoints';
 
 // Utility constants
@@ -50,4 +50,26 @@ export const compareKeypoints = (keypoints1: Keypoints, keypoints2: Keypoints) =
     result['overall'] = overallScore;
 
     return result;
+}
+
+// Compares similarity metrics between two time series of keypoints
+// Returns the mapping of indices with respect to the demo
+export const compareTimeKeypoints = (demo: Keypoints[], target: Keypoints[]) => {
+    const m = target.length;
+    const n = demo.length;
+    const costMatrix = Array.from({ length: m }, () => Array(n).fill(0));
+    for(let i = 0; i < m; i++) {
+        for(let j = 0; j < n; j++) {
+            costMatrix[i][j] = compareKeypoints(target[i], demo[j]).overall;
+        }
+    }
+
+    // Compute the dynamic time warping
+    const res = dynamicTimeWarp(costMatrix);
+
+    return {
+        mappingPerFrame: res.indices,
+        costPerFrame: res.costs,
+        costOverall: res.costs.reduce((a, b) => a + b, 0)
+    };
 }
