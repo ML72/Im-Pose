@@ -141,10 +141,6 @@ const Upload: React.FC = () => {
     const img = new Image();
     const createdURL:string = window.URL.createObjectURL(file);
     img.src = createdURL;
-    img.onload = () => {
-      // Destructor for the URL
-      URL.revokeObjectURL(createdURL);
-    }
     return img;
   }
 
@@ -152,9 +148,6 @@ const Upload: React.FC = () => {
     const video = document.createElement('video');
     const createdURL:string = window.URL.createObjectURL(file);
     video.src = createdURL;
-    video.onload = () => {
-      URL.revokeObjectURL(createdURL);
-    }
     return video;
   }
 
