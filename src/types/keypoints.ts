@@ -6,6 +6,6 @@ export interface Keypoint {
 }
 
 export interface Keypoints {
-    keypoints: [Keypoint];
-    keypoints3D: [Keypoint];
+    keypoints: Keypoint[];
+    keypoints3D: Keypoint[];
 }

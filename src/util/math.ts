@@ -15,7 +15,7 @@ export const cosineSim = (
 }
 
 // Normalizes keypoints so that max x/y is 1 and min x/y is 0
-export const normalizeKeypoints = (keypoints: [Keypoint]) => {
+export const normalizeKeypoints = (keypoints: Keypoint[]) => {
     const xVals = keypoints.map(kp => kp.x);
     const yVals = keypoints.map(kp => kp.y);
     const maxX = Math.max(...xVals);

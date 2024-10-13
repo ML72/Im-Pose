@@ -3,8 +3,8 @@ import { Keypoints } from '../types/keypoints';
 
 // Utility constants
 const WEIGHTS = {
-    head: 0.15,
-    body: 0.15,
+    head: 0.2,
+    body: 0.1,
     arms: 0.35,
     legs: 0.35
 }
