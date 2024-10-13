@@ -1,5 +1,6 @@
 import React from 'react';
-import { Button, Container, styled, Box, ButtonGroup, Stack, ButtonBase, Avatar, Typography } from '@mui/material';
+import { Container, styled, Box, ButtonGroup, Stack, Avatar, Typography } from '@mui/material';
+import { useHistory } from 'react-router-dom';
 
 import CustomPage from '../components/CustomPage';
 import NavBar from './Navbar';
@@ -25,6 +26,11 @@ const Home: React.FC = () => {
         alignItems: 'center',
     }));
 
+    const history = useHistory();
+    let changePage = (page: string) => {
+        history.push('/' + page);
+    }
+
   return (
     <CustomPage>
       <NavBar />
@@ -33,7 +39,7 @@ const Home: React.FC = () => {
 
         <Stack spacing={24} justifyContent="center" alignItems="center" >
             <HomeBox>
-                <HomeButton onClick={() => console.log("clicked")}>
+                <HomeButton onClick={() => changePage("upload")}>
                     <CameraAltOutlinedIcon />
                 </HomeButton>
                 <Typography>
@@ -42,7 +48,7 @@ const Home: React.FC = () => {
             </HomeBox>
 
             <HomeBox>
-                <HomeButton onClick={() => console.log("clicked")}>
+                <HomeButton onClick={() => changePage("results")}>
                     <CollectionsOutlinedIcon />
                 </HomeButton>
                 <Typography>
@@ -51,7 +57,7 @@ const Home: React.FC = () => {
             </HomeBox>
 
             <HomeBox>
-                <HomeButton onClick={() => console.log("clicked")}>
+                <HomeButton onClick={() => changePage("stats")}>
                     <InsertChartOutlinedIcon />
                 </HomeButton>
                 <Typography>
