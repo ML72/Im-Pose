@@ -16,42 +16,48 @@ const Stats: React.FC = () => {
 
   return (
     <CustomPage>
-      <br />
-      {imgs.length === 0 ? (
-        <Typography variant="h4" align="center">
-          No images found.
-        </Typography>
-      ) : (
-        <Box sx={{ display: "flex", flexDirection: "column", gap: 2 }}>
-          {imgs.map((row, rowKey) => {
-            return (
-              <Box
-                sx={{
-                  display: "flex",
-                  width: "100vw",
-                  justifyContent: "space-evenly",
-                  alignContent: "center",
-                }}
-              >
-                {row.map((img, key) => {
-                  return (
-                    <Box
-                      sx={{
-                        border: "1px solid black",
-                        padding: 1,
-                        justifyContent: "center",
-                        alignItems: "center",
-                      }}
-                    >
-                      <Typography>{img}</Typography>
-                    </Box>
-                  );
-                })}
-              </Box>
-            );
-          })}
-        </Box>
-      )}
+      <Container maxWidth="sm" sx={{ 
+        background: 'linear-gradient(45deg, #e0f7fa, #fce4ec)',
+        height: "100%",
+      }}
+      >
+        <br />
+        {imgs.length === 0 ? (
+          <Typography variant="h4" align="center">
+            No images found.
+          </Typography>
+        ) : (
+          <Box sx={{ display: "flex", flexDirection: "column", gap: 2 }}>
+            {imgs.map((row, rowKey) => {
+              return (
+                <Box
+                  sx={{
+                    display: "flex",
+                    width: "100vw",
+                    justifyContent: "space-evenly",
+                    alignContent: "center",
+                  }}
+                >
+                  {row.map((img, key) => {
+                    return (
+                      <Box
+                        sx={{
+                          border: "1px solid black",
+                          padding: 1,
+                          justifyContent: "center",
+                          alignItems: "center",
+                        }}
+                      >
+                        <Typography>{img}</Typography>
+                      </Box>
+                    );
+                  })}
+                </Box>
+              );
+            })}
+          </Box>
+        )}
+      </Container>
     </CustomPage>
   );
 };
