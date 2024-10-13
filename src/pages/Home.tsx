@@ -13,59 +13,6 @@ const Home: React.FC = () => {
       history.push('/' + page);
   }
 
-  const explodeAnimationUpload = keyframes`
-    0% {
-      transform: scale(1);
-      opacity: 1;
-    }
-    30% {
-      transform: scale(1.3);
-      opacity: 1;
-    }
-    100% {
-      transform: scale(0);
-      opacity: 0;
-    }
-  `;
-
-  const explodeAnimationResults = keyframes`
-    0% {
-      transform: rotate(0deg) scale(1);
-      opacity: 1;
-    }
-    25% {
-      transform: rotate(27deg) scale(1.2);
-      opacity: 0.8;
-    }
-    50% {
-      transform: rotate(45deg) scale(1.4);
-      opacity: 0.6;
-    }
-    75% {
-      transform: rotate(75deg) scale(1.5);
-      opacity: 0.4;
-    }
-    100% {
-      transform: rotate(90deg) scale(0);
-      opacity: 0;
-    }
-  `;
-
-  const explodeAnimationStats = keyframes`
-    0% {
-      transform: translateX(0) scale(1);
-      opacity: 1;
-    }
-    50% {
-      transform: translateX(10px) scale(1.2);
-      opacity: 0.9;
-    }
-    100% {
-      transform: translateX(-20px) scale(0);
-      opacity: 0;
-    }
-  `;
-
   const fadeAwayAnimationStats = keyframes`
   0% {
     opacity: 1;
@@ -80,7 +27,7 @@ const Home: React.FC = () => {
   const [resultsExploding, setResultsExploding] = useState(false);
   const [statsExploding, setStatsExploding] = useState(false);
 
-const handleClickUpload = () => {
+  const handleClickUpload = () => {
     setUploadExploding(true);
 
     setTimeout(() => {
