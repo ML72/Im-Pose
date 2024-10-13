@@ -48,11 +48,11 @@ async function captureFrame(videoElement: any, time: any) {
   return img;
 }
 
-
+// Returns an array of 2 elements. First element is the result, 2nd element are all frames
 export const detectKeypointsVideo = async (
   video: HTMLVideoElement,
   fps: number
-): Promise<poseDetection.Pose[][]> => {
+): Promise<any[]> => {
   await tf.setBackend('webgl');
   await tf.ready();
   
@@ -61,16 +61,18 @@ export const detectKeypointsVideo = async (
   const detectorConfig = {modelType: poseDetection.movenet.modelType.SINGLEPOSE_THUNDER};
   const detector = await poseDetection.createDetector(model, detectorConfig);
   let res: any = []
+  let frames: any = []
   let currTime = 0;
   const interval = 1 / fps;
   while (currTime < video.duration) {
-    let img = await captureFrame(video, currTime)
+    let img = await captureFrame(video, currTime);
+    frames.push(img);
     let poses = await detector.estimatePoses(img);
-    res.push(poses[0])
+    res.push(poses[0]);
     currTime += interval;
   }
 
   detector.dispose();
-  return res
+  return [res, frames]
 }
 

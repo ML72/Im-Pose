@@ -57,8 +57,8 @@ const Upload: React.FC = () => {
       let target_vid = fileToVideo(target);
       let demo_vid = fileToVideo(demo);
 
-      let target_poses = await detectKeypointsVideo(target_vid, 10);
-      let demo_poses = await detectKeypointsVideo(demo_vid, 10);
+      let target_poses, target_frames = await detectKeypointsVideo(target_vid, 10);
+      let demo_poses, demo_frames = await detectKeypointsVideo(demo_vid, 10);
 
       console.log(target_poses);
       console.log(demo_poses);
@@ -68,6 +68,8 @@ const Upload: React.FC = () => {
       let demo_keypoints: any = demo_poses;
       let result = compareTimeKeypoints(demo_keypoints, target_keypoints);
       console.log(result)
+      
+      // TODO: return frames to result page
     }
     // changePage("results")
   }
