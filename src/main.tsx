@@ -7,8 +7,11 @@ import { persistor } from './store/store';
 import App from './App';
 import { store } from './store/store';
 
+import { defineCustomElements } from '@ionic/pwa-elements/loader';
+
 const container = document.getElementById('root');
 const root = createRoot(container!);
+defineCustomElements(window);
 root.render(
   <React.StrictMode>
     <Provider store={store}>

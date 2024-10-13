@@ -14,7 +14,8 @@
     "@capacitor/android": "^4.8.2",
     "@capacitor/app": "4.1.1",
     "@capacitor/assets": "^2.0.4",
-    "@capacitor/core": "4.8.0",
+    "@capacitor/camera": "^6.0.2",
+    "@capacitor/core": "^6.0.0",
     "@capacitor/haptics": "4.1.0",
     "@capacitor/ios": "^4.8.2",
     "@capacitor/keyboard": "4.1.1",
@@ -22,6 +23,7 @@
     "@capacitor/status-bar": "4.1.1",
     "@emotion/react": "^11.13.3",
     "@emotion/styled": "^11.13.0",
+    "@ionic/pwa-elements": "^3.3.0",
     "@ionic/react": "^7.0.0",
     "@ionic/react-router": "^7.8.6",
     "@mui/icons-material": "^5.16.7",
@@ -44,7 +46,7 @@
     "uuid": "^9.0.1"
   },
   "devDependencies": {
-    "@capacitor/cli": "4.7.3",
+    "@capacitor/cli": "^4.7.3",
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^14.3.1",
     "@testing-library/user-event": "^14.5.2",
