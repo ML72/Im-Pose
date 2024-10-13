@@ -9,7 +9,6 @@ import KeyboardBackspaceIcon from '@mui/icons-material/KeyboardBackspace';
 const NavBar: React.FC = () => {
 
     let location = useLocation();
-    console.log(location.pathname);
 
     const history = useHistory();
     let changePage = () => {
@@ -17,10 +16,10 @@ const NavBar: React.FC = () => {
     }
   
     return (
-        <AppBar position='static' className='navbar'>
+        <AppBar position='static' className='navbar' sx={{ height: '3rem' }}>
             
             <Toolbar className='navbar-tool' sx={{ width: "100%" }}>
-                { location.pathname === '/' ? 
+                {location.pathname === '/' ? 
                     <Stack spacing={2} direction="row" sx={{ width: "100%", flexGrow: 1, alignItems: 'center' }}>
                         <Box sx={{ flex:1, display: 'flex', justifyContent: 'center' }} />
                         <Box sx={{ flex:1, display: 'flex', justifyContent: 'center' }}>
