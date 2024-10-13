@@ -1,61 +1,65 @@
 import React from 'react';
-import { Button, Container, styled, Box, ButtonGroup } from '@mui/material';
+import { Button, Container, styled, Box, ButtonGroup, Stack, ButtonBase, Avatar, Typography } from '@mui/material';
 
 import CustomPage from '../components/CustomPage';
 import NavBar from './Navbar';
 import Footer from './Footer';
 
-import CloudUploadIcon from '@mui/icons-material/CloudUpload';
+import CameraAltOutlinedIcon from '@mui/icons-material/CameraAltOutlined';
+import CollectionsOutlinedIcon from '@mui/icons-material/CollectionsOutlined';
+import InsertChartOutlinedIcon from '@mui/icons-material/InsertChartOutlined';
 
 const Home: React.FC = () => {
   
-const VisuallyHiddenInput = styled('input')({
-    clip: 'rect(0 0 0 0)',
-    clipPath: 'inset(50%)',
-    height: 1,
-    overflow: 'hidden',
-    position: 'absolute',
-    bottom: 0,
-    left: 0,
-    whiteSpace: 'nowrap',
-    width: 1,
-});
+    const HomeButton = styled(Avatar)(({ theme }) => ({
+        fontSize: "20px",
+        position: 'relative',
+        width: "6rem",
+        height: "6rem",
+    }));
+
+    const HomeBox = styled(ButtonGroup)(({ theme }) => ({
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'center',
+        alignItems: 'center',
+    }));
 
   return (
     <CustomPage>
       <NavBar />
 
-      <Container className='home-button-container' maxWidth="sm">
-        <ButtonGroup 
-            orientation='vertical'
-            className='home-button-group'
-            variant='outlined'
-        >
-            <Button className='home-button' onClick={() => console.log("clicked")}>
-                Camera
-            </Button>
-            <Button className='home-button'>
-                Album
-            </Button>
-            <Button className='home-button'>
-                History & Stats
-            </Button>
-        </ButtonGroup>
+      <Container maxWidth="sm" sx={{ paddingY: "1rem", paddingX: "1rem", marginY: "1rem"}}>
 
-        {/* <Button
-            component="label"
-            role={undefined}
-            variant="contained"
-            tabIndex={-1}
-            startIcon={<CloudUploadIcon />}
-        >
-            Upload files
-            <VisuallyHiddenInput
-                type="file"
-                onChange={(event) => console.log(event.target.files)}
-                multiple
-            />
-        </Button> */}
+        <Stack spacing={24} justifyContent="center" alignItems="center" >
+            <HomeBox>
+                <HomeButton onClick={() => console.log("clicked")}>
+                    <CameraAltOutlinedIcon />
+                </HomeButton>
+                <Typography>
+                    Take a photo/video!
+                </Typography>
+            </HomeBox>
+
+            <HomeBox>
+                <HomeButton onClick={() => console.log("clicked")}>
+                    <CollectionsOutlinedIcon />
+                </HomeButton>
+                <Typography>
+                    See past photos/videos!
+                </Typography>
+            </HomeBox>
+
+            <HomeBox>
+                <HomeButton onClick={() => console.log("clicked")}>
+                    <InsertChartOutlinedIcon />
+                </HomeButton>
+                <Typography>
+                    See stats!
+                </Typography>
+            </HomeBox>
+        </Stack>
+
       </Container>
 
       {/* <Footer /> */}
