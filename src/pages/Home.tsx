@@ -3,8 +3,6 @@ import { Container, styled, Box, ButtonGroup, Stack, Avatar, Typography } from '
 import { useHistory } from 'react-router-dom';
 
 import CustomPage from '../components/CustomPage';
-import NavBar from './Navbar';
-import Footer from './Footer';
 
 import CameraAltOutlinedIcon from '@mui/icons-material/CameraAltOutlined';
 import CollectionsOutlinedIcon from '@mui/icons-material/CollectionsOutlined';
@@ -33,10 +31,7 @@ const Home: React.FC = () => {
 
   return (
     <CustomPage>
-      <NavBar />
-
       <Container maxWidth="sm" sx={{ paddingY: "1rem", paddingX: "1rem", marginY: "1rem"}}>
-
         <Stack spacing={24} justifyContent="center" alignItems="center" >
             <HomeBox>
                 <HomeButton onClick={() => changePage("upload")}>
@@ -65,10 +60,7 @@ const Home: React.FC = () => {
                 </Typography>
             </HomeBox>
         </Stack>
-
       </Container>
-
-      {/* <Footer /> */}
     </CustomPage>
   )
 };

@@ -3,6 +3,9 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { IonContent } from '@ionic/react';
 
 import Alert from './Alert';
+import NavBar from './Navbar';
+import Footer from './Footer';
+import { Box } from '@mui/material';
 
 interface ComponentProps {
   children?: ReactNode;
@@ -21,27 +24,16 @@ const CustomPage: React.FC<ComponentProps> = ({ children = [] }: ComponentProps)
     }
   });
 
-//   const themes = createTheme({
-//     palette: {
-//         background: {
-//           paper: '#fff',
-//         },
-//         text: {
-//           primary: '#173A5E',
-//           secondary: '#46505A',
-//         },
-//         action: {
-//           active: '#001E3C',
-//         },
-//       },
-// });
-
   return (
     <ThemeProvider theme={theme}>
-      <IonContent forceOverscroll={false}>
-        { children }
-        <Alert />
-      </IonContent>
+        <Box sx={{ display: "flex", flexDirection: 'column', minHeight: '100vh' }}>
+            <NavBar />
+            <IonContent forceOverscroll={false}>
+                { children }
+                <Alert />
+            </IonContent>
+            <Footer />
+        </Box>
     </ThemeProvider>
   )
 }
