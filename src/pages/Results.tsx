@@ -3,14 +3,15 @@ import { Box, Button, Container, Typography } from '@mui/material';
 import { useDispatch } from 'react-redux';
 
 import CustomPage from '../components/CustomPage';
-import { triplets } from '../util/triplets';
+import { slicer } from '../util/slicer';
 import { parseFiles } from '../util/parseFiles';
+import { useSelector } from 'react-redux';
+import { selectPicsState } from '../store/slices/pics';
 
 
 const Results: React.FC = () => {
-
-    // let files = parseFiles('../data');
-    let imgs = triplets([1, 2, 3, 4, 5], 3);
+    const res = useSelector(selectPicsState);
+    let imgs = slicer([1, 2, 3, 4, 5, 6, 7, 8, 9], 3);
     
     useEffect(() => {
         
