@@ -8,11 +8,39 @@ import { parseFiles } from "../util/parseFiles";
 import { useSelector } from "react-redux";
 import { selectPicsState } from "../store/slices/pics";
 
-const Stats: React.FC = () => {
-  const res = useSelector(selectPicsState);
-  let imgs = slicer([1, 2, 3, 4, 5, 6, 7, 8, 9], 4);
 
-  useEffect(() => {}, []);
+const Stats: React.FC = () => {
+//   const initialState: any = {
+//     compareType: null, // Either "pics" or "vids"
+//     demo: null,
+//     target: null,
+//     result: null
+//   };
+
+  // const res = useSelector(selectPicsState);
+//   let res = [
+    // '../data/img.jpg',
+    // '../data/img1.jpg',
+    // '../data/img2.jpg',
+    // '../data/img3.jpg',
+    // '../data/img4.jpg',
+    // '../data/img5.jpg',
+    // '../data/img6.jpg',
+    // '../data/img7.jpg',
+//   ];
+
+  // let res = [
+  //   'https://picsum.photos/100',
+  //   'https://picsum.photos/100',
+  //   'https://picsum.photos/100',
+  //   'https://picsum.photos/100',
+  //   'https://picsum.photos/100',
+  //   'https://picsum.photos/100',
+  //   'https://picsum.photos/100',
+  //   'https://picsum.photos/100',
+  // ];
+
+  let imgs = slicer([], 3);
 
   return (
     <CustomPage>
@@ -24,7 +52,7 @@ const Stats: React.FC = () => {
         <br />
         {imgs.length === 0 ? (
           <Typography variant="h4" align="center">
-            No images found.
+            No Images Now
           </Typography>
         ) : (
           <Box sx={{ display: "flex", flexDirection: "column", gap: 2 }}>
@@ -32,9 +60,10 @@ const Stats: React.FC = () => {
               return (
                 <Box
                   sx={{
+                    key: rowKey,
                     display: "flex",
-                    width: "100vw",
-                    justifyContent: "space-evenly",
+                    width: "90vw",
+                    justifyContent: (row.length === 2)? 'space-evenly' : 'space-between',
                     alignContent: "center",
                   }}
                 >
@@ -42,12 +71,15 @@ const Stats: React.FC = () => {
                     return (
                       <Box
                         sx={{
-                          border: "1px solid black",
-                          padding: 1,
+                          key: key,
                           justifyContent: "center",
                           alignItems: "center",
                         }}
                       >
+                        {/* <img
+                          src={img}
+                          style={{ width: "7rem", height: "7rem" }}
+                        /> */}
                         <Typography>{img}</Typography>
                       </Box>
                     );
