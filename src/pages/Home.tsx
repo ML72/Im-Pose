@@ -79,7 +79,7 @@ const Home: React.FC = () => {
             Welcome to Impose!
           </Typography>
           <Typography variant="h6" sx={{ mt: 2, px:2 }}>
-            We're here to help elevate your movement together.
+            Learn new routines and take your poses to the next level with ImPose, your very own AI coach!
           </Typography>
         </Box>
         <Grid container sx={{ py: 5, px: 1 }} >
