@@ -1,13 +1,8 @@
 import React from 'react';
-import { BottomNavigation, BottomNavigationAction, Box, Button, Container, Typography } from '@mui/material';
-
-import RestoreIcon from '@mui/icons-material/Restore';
-import FavoriteIcon from '@mui/icons-material/Favorite';
-import LocationOnIcon from '@mui/icons-material/LocationOn';
+import { Box, Typography } from '@mui/material';
 
 
 const Footer: React.FC = () => {
-    const [value, setValue] = React.useState(0);
     console.log('Footer');
 
   return (

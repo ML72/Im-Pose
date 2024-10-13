@@ -1,9 +1,8 @@
-import React, { useEffect, useState } from 'react';
-import { AppBar, Box, Button, Container, IconButton, Link, Stack, Toolbar, Typography } from '@mui/material';
-import { useDispatch } from 'react-redux';
+import React from 'react';
+import { AppBar, Box, IconButton, Stack, Toolbar } from '@mui/material';
 import { useHistory, useLocation } from 'react-router';
 
-import KeyboardBackspaceIcon from '@mui/icons-material/KeyboardBackspace';
+import ChevronLeftSharpIcon from '@mui/icons-material/ChevronLeftSharp';
 
 
 const NavBar: React.FC = () => {
@@ -16,7 +15,7 @@ const NavBar: React.FC = () => {
     }
   
     return (
-        <AppBar position='static' className='navbar' sx={{ height: '3rem' }}>
+        <AppBar position='static' className='navbar' sx={{ height: '3rem', backgroundColor: 'transparent' }}>
             
             <Toolbar className='navbar-tool' sx={{ width: "100%" }}>
                 {location.pathname === '/' ? 
@@ -36,7 +35,7 @@ const NavBar: React.FC = () => {
                     <Stack spacing={2} direction="row" sx={{ width: "100%", flexGrow: 1, alignItems: 'center' }}>
                         <Box sx={{ flex:1, display: 'flex', justifyContent: 'left' }}>
                             <IconButton onClick={() => changePage()}>
-                                <KeyboardBackspaceIcon />
+                                <ChevronLeftSharpIcon />
                             </IconButton>
                         </Box>
                         <Box sx={{ flex:1, display: 'flex', justifyContent: 'center' }}>
@@ -57,33 +56,3 @@ const NavBar: React.FC = () => {
 };
 
 export default NavBar;
-
-// const [navActive, setNavActive] = useState(false);
-
-    // const toggleNav = () => {
-    //   setNavActive(!navActive);
-    // };
-  
-    // const closeMenu = () => {
-    //   setNavActive(false);
-    // };
-  
-    // useEffect(() => {
-    //   const handleResize = () => {
-    //     if (window.innerWidth <= 500) {
-    //       closeMenu;
-    //     }
-    //   };
-  
-    //   window.addEventListener("resize", handleResize);
-  
-    //   return () => {
-    //     window.removeEventListener("resize", handleResize);
-    //   };
-    // }, []);
-  
-    // useEffect(() => {
-    //   if (window.innerWidth <= 1200) {
-    //     closeMenu;
-    //   }
-    // }, []);

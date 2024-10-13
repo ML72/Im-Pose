@@ -3,8 +3,6 @@ import { Container, styled, Box, ButtonGroup, Stack, Avatar, Typography } from '
 import { useHistory } from 'react-router-dom';
 
 import CustomPage from '../components/CustomPage';
-import NavBar from './Navbar';
-import Footer from './Footer';
 
 import CameraAltOutlinedIcon from '@mui/icons-material/CameraAltOutlined';
 import CollectionsOutlinedIcon from '@mui/icons-material/CollectionsOutlined';
