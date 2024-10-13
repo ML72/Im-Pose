@@ -5,10 +5,6 @@ import { useHistory } from 'react-router-dom';
 
 import CustomPage from '../components/CustomPage';
 
-import CameraAltOutlinedIcon from '@mui/icons-material/CameraAltOutlined';
-import CollectionsOutlinedIcon from '@mui/icons-material/CollectionsOutlined';
-import InsertChartOutlinedIcon from '@mui/icons-material/InsertChartOutlined';
-
 const Home: React.FC = () => {
   
     const HomeButton = styled(Avatar)(({ theme }) => ({
@@ -46,13 +42,8 @@ const Home: React.FC = () => {
                         </Button>
                     </Grid>
                     <Grid item xs={6} sx={{ mb: 1, px: 1 }}>
-                        <Button variant="outlined" startIcon={<CameraAlt />} sx={{ width: '100%' }} onClick={() => changePage("results")}>
-                            Stream
-                        </Button>
-                    </Grid>
-                    <Grid item xs={12} sx={{ px: 1 }}>
-                        <Button variant="contained" startIcon={<Ballot />} sx={{ width: '100%' }} onClick={() => changePage("stats")}>
-                            Stats
+                        <Button variant="outlined" startIcon={<Ballot />} sx={{ width: '100%' }} onClick={() => changePage("results")}>
+                            Last Result
                         </Button>
                     </Grid>
                 </Grid>
