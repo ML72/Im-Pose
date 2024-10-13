@@ -15,6 +15,7 @@ const normalizeScore = (score: number, compareType: string) => {
 
 const Results: React.FC = () => {
   const res: any = useSelector(selectPicsState);
+  console.log(res)
   
   const [leftImg, setLeftImg]: any = useState('');
   const [rightImg, setRightImg]: any = useState('');
@@ -29,11 +30,11 @@ const Results: React.FC = () => {
   // Render images
   useEffect(() => {
     if(res.compareType == 'pics') {
-      setLeftImg(res.demo);
-      setRightImg(res.target);
+      setRightImg(res.demo);
+      setLeftImg(res.target);
     } else {
-      setLeftImg(res.demo[frame-1]);
-      setRightImg(res.target[res.result.mappingPerFrame[frame-1]]);
+      setRightImg(res.demo[frame-1]);
+      setLeftImg(res.target[res.result.mappingPerFrame[frame-1]]);
     }
   }, [res, frame]);
 
@@ -48,7 +49,7 @@ const Results: React.FC = () => {
     if(res.compareType == 'pics') {
       const keys = ['head', 'body', 'arms', 'legs'];
       const scores = keys.map((key: string) => res.result[key]);
-      const scoresSorted = scores.sort();
+      let scoresSorted = [...scores].sort((a: number, b: number) => a - b);
       let worstKey = keys[scores.indexOf(scoresSorted[0])];
       let secondWorstKey = keys[scores.indexOf(scoresSorted[1])];
       if(worstKey == 'arm' || worstKey == 'legs') {
@@ -57,7 +58,7 @@ const Results: React.FC = () => {
       if(secondWorstKey == 'arm' || secondWorstKey == 'legs') {
         secondWorstKey = secondWorstKey.substring(0, 3);
       }
-      return `You need to work on your ${worstKey} positions! You could also consider improving your ${secondWorstKey} positions.`;
+      return `You need to work on your ${worstKey} poses! You could also consider improving your ${secondWorstKey} orientations.`;
     } else {
       const midFrames1 = Math.floor(maxFrames / 3);
       const midFrames2 = Math.floor(2 * maxFrames / 3);
@@ -93,11 +94,11 @@ const Results: React.FC = () => {
         <Box>
           <Grid container sx={{ px: 1 }} >
             <Grid item xs={6} sx={{ mb: 1, pr: 1 }}>
-              <Typography variant="body1" align="center">Demo (You)</Typography>
+              <Typography variant="body1" align="center">Demo</Typography>
               <img src={leftImg.src}/>
             </Grid>
             <Grid item xs={6} sx={{ mb: 1, pl: 1 }}>
-              <Typography variant="body1" align="center">Target (Expert)</Typography>
+              <Typography variant="body1" align="center">You</Typography>
               <img src={rightImg.src}/>
             </Grid>
           </Grid>

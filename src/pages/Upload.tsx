@@ -21,13 +21,15 @@ const Upload: React.FC = () => {
 
   const dispatch = useDispatch();
 
+  // DISCLAIMER: NAMING IS REALLY BAD
+  // IN OUR CODE, DEMO IS YOUR VID/IMG AND TARGET IS THE EXPERT VID/IMG
   // Handle selecting a media file (either image or video)
   const getTarget = (event: any) => {
     const file = event.target.files[0];
     if (file) {
       setTarget(file);
     }
-    setNewAlert(dispatch, { msg: "Target successfully uploaded!", timeout: 5000 });
+    setNewAlert(dispatch, { msg: "Demo media successfully uploaded!", timeout: 5000 });
   };
 
   const getDemo = (event: any) => {
@@ -35,7 +37,7 @@ const Upload: React.FC = () => {
     if (file) {
       setDemo(file);
     }
-    setNewAlert(dispatch, { msg: "Demo successfully uploaded!", timeout: 5000 });
+    setNewAlert(dispatch, { msg: "Your media successfully uploaded!", timeout: 5000 });
   };
 
   const clearUploads = () => {
@@ -184,7 +186,7 @@ const Upload: React.FC = () => {
             {/* MUI Button to trigger file input */}
             <label htmlFor="target-upload">
               <Button variant="contained" startIcon={<FileUploadIcon />} fullWidth component="span">
-                Upload Target
+                Upload Demo
               </Button>
             </label>
           </Grid>
@@ -200,7 +202,7 @@ const Upload: React.FC = () => {
             {/* MUI Button to trigger file input */}
             <label htmlFor="demo-upload">
               <Button variant="outlined" startIcon={<FileUploadIcon />} fullWidth component="span">
-                Upload Demo
+                Upload You
               </Button>
             </label>
           </Grid>
