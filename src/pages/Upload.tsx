@@ -160,87 +160,93 @@ const Upload: React.FC = () => {
 
   return (
     <CustomPage>
-      <Box sx={{ px: 10, pt: 5 }}>
-        <img src="/img/undraw_upload_re_pasx.svg"/>
-      </Box>
+      <Container maxWidth="sm" sx={{ 
+        background: 'linear-gradient(45deg, #e0f7fa, #fce4ec)',
+        height: "100%",
+      }}
+      >
+        <Box sx={{ px: 10, pt: 5 }}>
+          <img src="/img/undraw_upload_re_pasx.svg"/>
+        </Box>
 
-      <Typography align="center" variant="body1" sx={{ mt: 3, mx: 2 }}>
-        Upload photos or videos to compare your form against an expert and receive AI-powered feedback!
-      </Typography>
+        <Typography align="center" variant="body1" sx={{ mt: 3, mx: 2 }}>
+          Upload photos or videos to compare your form against an expert and receive AI-powered feedback!
+        </Typography>
 
-      <Box display="flex" justifyContent="center" sx={{ pt: 2 }}>
-        <FormGroup>
-          <FormControlLabel control={<Switch onChange = {handleModeChange} />} label= { photoMode ? "Compare Photos" : "Compare Videos" } />
-        </FormGroup>
-      </Box>
+        <Box display="flex" justifyContent="center" sx={{ pt: 2 }}>
+          <FormGroup>
+            <FormControlLabel control={<Switch onChange = {handleModeChange} />} label= { photoMode ? "Compare Photos" : "Compare Videos" } />
+          </FormGroup>
+        </Box>
 
-      <Grid container sx={{ pt: 2, px: 1 }} >
-        <Grid item xs={6} sx={{ mb: 1, px: 1 }}>
-          <input
-            type="file"
-            accept={photoMode ? "image/*" : "video/*" }
-            style={{ display: 'none' }} // Hide the default file input
-            id="target-upload" // ID for label reference
-            onChange={getTarget}
-          />
-          {/* MUI Button to trigger file input */}
-          <label htmlFor="target-upload">
-            <Button variant="contained" startIcon={<FileUploadIcon />} fullWidth component="span">
-              Upload Target
-            </Button>
-          </label>
+        <Grid container sx={{ pt: 2, px: 1 }} >
+          <Grid item xs={6} sx={{ mb: 1, px: 1 }}>
+            <input
+              type="file"
+              accept={photoMode ? "image/*" : "video/*" }
+              style={{ display: 'none' }} // Hide the default file input
+              id="target-upload" // ID for label reference
+              onChange={getTarget}
+            />
+            {/* MUI Button to trigger file input */}
+            <label htmlFor="target-upload">
+              <Button variant="contained" startIcon={<FileUploadIcon />} fullWidth component="span">
+                Upload Target
+              </Button>
+            </label>
+          </Grid>
+          <Grid item xs={6} sx={{ mb: 1, px: 1 }}>
+            {/* Hidden input for file selection */}
+            <input
+              type="file"
+              accept={photoMode ? "image/*" : "video/*" }
+              style={{ display: 'none' }} // Hide the default file input
+              id="demo-upload" // ID for label reference
+              onChange={getDemo}
+            />
+            {/* MUI Button to trigger file input */}
+            <label htmlFor="demo-upload">
+              <Button variant="outlined" startIcon={<FileUploadIcon />} fullWidth component="span">
+                Upload Demo
+              </Button>
+            </label>
+          </Grid>
         </Grid>
-        <Grid item xs={6} sx={{ mb: 1, px: 1 }}>
-          {/* Hidden input for file selection */}
-          <input
-            type="file"
-            accept={photoMode ? "image/*" : "video/*" }
-            style={{ display: 'none' }} // Hide the default file input
-            id="demo-upload" // ID for label reference
-            onChange={getDemo}
-          />
-          {/* MUI Button to trigger file input */}
-          <label htmlFor="demo-upload">
-            <Button variant="outlined" startIcon={<FileUploadIcon />} fullWidth component="span">
-              Upload Demo
-            </Button>
-          </label>
-        </Grid>
-      </Grid>
 
-      <Container sx={{ px: 2 }}>
-        {
-          target ?
-          <Typography variant="subtitle1" mt={1}>
-            Target file: <strong>{target.name}</strong>
-          </Typography>
-          :
-          <></>
-        }
+        <Container sx={{ px: 2 }}>
+          {
+            target ?
+            <Typography variant="subtitle1" mt={1}>
+              Target file: <strong>{target.name}</strong>
+            </Typography>
+            :
+            <></>
+          }
 
-        {
-          demo ?
-          <Typography variant="subtitle1" mt={1}>
-            Demo file: <strong>{demo.name}</strong>
-          </Typography>
-          :
-          <></>
-        }
-      </Container>
-      
-      {/* Submit */}
-      <Container sx={{ mt: 3 }}>
-        <Button variant="contained" fullWidth onClick={handleSubmit}>
-          Check Match
-        </Button>
+          {
+            demo ?
+            <Typography variant="subtitle1" mt={1}>
+              Demo file: <strong>{demo.name}</strong>
+            </Typography>
+            :
+            <></>
+          }
+        </Container>
+        
+        {/* Submit */}
+        <Container sx={{ mt: 3 }}>
+          <Button variant="contained" fullWidth onClick={handleSubmit}>
+            Check Match
+          </Button>
+        </Container>
+
+        <Container sx={{ mt: 1, mb: 3 }}>
+          <Button variant="outlined" fullWidth onClick={() => {changePage('')}}>
+            Cancel
+          </Button>
+        </Container>
       </Container>
 
-      <Container sx={{ mt: 1, mb: 3 }}>
-        <Button variant="outlined" fullWidth onClick={() => {changePage('')}}>
-          Cancel
-        </Button>
-      </Container>
-      
     </CustomPage>
   )
 };
