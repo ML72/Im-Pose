@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { Box, Button, Container, Typography } from "@mui/material";
+import { Box, Button, Checkbox, Container, FormControlLabel, Typography } from "@mui/material";
 import { useDispatch } from "react-redux";
 
 import CustomPage from "../components/CustomPage";
@@ -9,14 +9,14 @@ import { useSelector } from "react-redux";
 import { selectPicsState } from "../store/slices/pics";
 
 const Results: React.FC = () => {
-
   
+	let res = [];
 
   return (
     <CustomPage>
 			<Box sx={{ display: 'flex', flexDirection: 'column' }}>
 				<Box>
-					{Math.random() * 100}%
+					{Math.random() * 100}%!
 				</Box>
 				<Box>
 					Score: {Math.random() * 100}
@@ -24,7 +24,7 @@ const Results: React.FC = () => {
 				<Box>
 					{Math.random() * 100 > 50? 
 						<Box>
-
+							
 						</Box>
 						:
 						<Box>
